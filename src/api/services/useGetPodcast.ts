@@ -20,7 +20,7 @@ function useGetPodcast( limit: number, queryOptions? : QueryOptions)
                 () => getPodcasts(limit), {
                     staleTime: Infinity,
                     refetchOnWindowFocus: false,
-                }) as UseQueryResult<IAllItunesData | string>
+                }) as UseQueryResult<IAllItunesData>
         return podcast
     }
     

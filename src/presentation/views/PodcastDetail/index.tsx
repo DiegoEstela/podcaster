@@ -1,7 +1,26 @@
+import { useParams } from "react-router-dom"
+import { IAllItunesData, IPodcast } from "../../../app/global/interfaces"
+import PodcastDescription from "../../components/PodcastDescription";
+import { Container } from "./index.style";
 
-function PodcastDetail() {
+type Params = {
+  podcastId: string;
+};
+
+function PodcastDetail({ podcast }: { podcast: string | IAllItunesData | undefined }) {
+  const { podcastId } = useParams<Params>()
+  const { feed }: any = podcast
+  console.log(podcast)
   return (
-    <div>PodcastDetail</div>
+    <>
+      {feed.entry
+        .filter((podcast: IPodcast) => podcast.id.attributes['im:id'] === podcastId)
+        .map((item: IPodcast) => (
+          <Container key={item.id.attributes['im:id']}>
+            <PodcastDescription name={item["im:name"].label} img={item['im:image'][2].label} author={item["im:artist"].label} description={item.summary.label} />
+          </Container>
+        ))}
+    </>
   )
 }
 
