@@ -1,0 +1,1 @@
+export const iTunesPath = 'https://itunes.apple.com'
