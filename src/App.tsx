@@ -6,7 +6,7 @@ import PodcastDetail from "./presentation/views/PodcastDetail";
 
 
 function App() {
-  const allPodcasts = useGetPodcast(50)
+  const allPodcasts = useGetPodcast(100)
   const { data } = allPodcasts
 
   return (

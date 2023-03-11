@@ -1,3 +1,5 @@
+import { RefetchOptions, ResetOptions } from "react-query";
+
 interface label { label: string }
 interface attributesLink { href: string, rel?: string, type?: string }
 interface atributesCategory {
@@ -11,6 +13,7 @@ interface IImagen {
     label?: string;
     attibutes?: { heigth: number }
 }
+
 
 export interface IPodcast {
     category: { attributes: atributesCategory, },
@@ -27,17 +30,17 @@ export interface IPodcast {
 }
 
 export interface IAllItunesData {
-    feed?: {
+    feed: {
         author: { name: label, uri: label },
         uri?: label,
-        entry: IPodcast[],
+        entry?: IPodcast[],
         icon: label,
         id: label,
         link: attributesLink[]
         rights: label,
         title: label,
         updated: label
-    } | string | undefined
+    }
 }
 
 export type TFetchStatus = "success" | "idle" | "error" | "loading"
@@ -52,3 +55,28 @@ export interface IPodcastDescription {
 }
 
 
+export interface IQueryResult {
+    data?: IAllItunesData
+    dataUpdatedAt: number
+    error: null
+    errorUpdateCount: number
+    errorUpdatedAt: number
+    failureCount: number
+    isError: boolean
+    isFetched: boolean
+    isFetchedAfterMount: boolean
+    isFetching: boolean
+    isIdle: boolean
+    isLoading: boolean
+    isLoadingError: boolean
+    isPlaceholderData: boolean
+    isPreviousData: boolean
+    isRefetchError: boolean
+    isRefetching: boolean
+    isStale: boolean
+    isSuccess: boolean
+    refetch: RefetchOptions
+    remove: ResetOptions
+    status: IStatus | string
+
+}

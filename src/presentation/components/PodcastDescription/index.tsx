@@ -2,7 +2,7 @@ import { Container, Img, Title, SubTitle, DescriptionTitle, DescriptionBody } fr
 import { IPodcastDescription } from "../../../app/global/interfaces"
 
 
-function PodcastDescription({ name, img, author, description }: IPodcastDescription) {
+function PodcastDescription({ name, img, author, description }: IPodcastDescription): JSX.Element {
     return (
         <Container>
             <Img src={img} />

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { IPodcast } from "../../../app/global/interfaces"
 
 
-function PodcastCard({ entry }: { entry: IPodcast }) {
+function PodcastCard({ entry }: { entry: IPodcast }): JSX.Element {
     const history = useNavigate()
     return (
         <Card onClick={() => history(`/podcast/${entry.id.attributes['im:id']}`)}>

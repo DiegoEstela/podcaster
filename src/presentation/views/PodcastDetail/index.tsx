@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { IAllItunesData, IPodcast } from "../../../app/global/interfaces"
+import { IQueryResult, IPodcast } from "../../../app/global/interfaces"
 import PodcastDescription from "../../components/PodcastDescription";
 import { Container } from "./index.style";
 
@@ -7,7 +7,7 @@ type Params = {
   podcastId: string;
 };
 
-function PodcastDetail({ podcast }: { podcast: string | IAllItunesData | undefined }) {
+function PodcastDetail({ podcast }: { podcast: IQueryResult | string | undefined }) {
   const { podcastId } = useParams<Params>()
   const { feed }: any = podcast
   console.log(podcast)

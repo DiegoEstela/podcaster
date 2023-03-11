@@ -1,6 +1,6 @@
-import React from 'react'
 
-function PodcastCounter() {
+
+function PodcastCounter(): JSX.Element {
     return (
         <div>PodcastCounter</div>
     )

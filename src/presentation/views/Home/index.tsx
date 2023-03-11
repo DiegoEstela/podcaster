@@ -1,13 +1,16 @@
-
+import { useState } from "react"
 import { Grid } from "react-loader-spinner"
-import { Container, CardContainer, Title, Loader } from "./index.style"
+import { Container, CardContainer, Title, Loader, Input } from "./index.style"
+import { renderPodcast } from "../../../api/services/renderPodcast"
 import { primary } from "../../../app/global/styles"
-import { IPodcast } from "../../../app/global/interfaces"
+import { IPodcast, IQueryResult } from "../../../app/global/interfaces"
 import PodcastCard from "../../components/PodcastCart"
 
 
 
-function Home({ podcast }: any) {
+function Home({ podcast }: { podcast: IQueryResult | any }) {
+  const [inputSearch, setInputSearch] = useState<string>('')
+
   return (
     <Container>
       {
@@ -28,11 +31,15 @@ function Home({ podcast }: any) {
 
       {
         podcast.status === 'success' &&
-        <CardContainer>
-          {podcast.data.feed.entry.map((entry: IPodcast) => (
-            <PodcastCard key={entry?.id.label} entry={entry} />
-          ))}
-        </CardContainer>
+        <>
+          <Input value={inputSearch ? inputSearch : ""} onChange={(e) => setInputSearch(e.target.value)} type='text' placeholder="Filter podcasts..." />
+          <CardContainer>
+            { }
+            {renderPodcast(inputSearch, podcast)?.map((entry: IPodcast) => (
+              <PodcastCard key={entry?.id.label} entry={entry} />
+            ))}
+          </CardContainer>
+        </>
       }
       {
         podcast.status === 'error' &&

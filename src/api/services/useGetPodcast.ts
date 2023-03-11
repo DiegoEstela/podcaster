@@ -1,26 +1,26 @@
 import { QueryKey, UseQueryOptions, UseQueryResult, useQuery } from 'react-query'
-import { IAllItunesData } from '../../app/global/interfaces';
+import { IQueryResult } from '../../app/global/interfaces';
 import { getPodcasts } from './getPodcasts';
 
     
-type QueryOptions = Omit<UseQueryOptions<IAllItunesData, QueryKey>, 'queryFn'>
+type QueryOptions = Omit<UseQueryOptions<IQueryResult, QueryKey>, 'queryFn'>
     
 /**
 * useGetPodcast busca los podcast de la api de Itunes
 * 
 * @param limit permite delimitar cuantos datos queremos traer
-* @returns UseQueryResult<IAllItunesData[] | string>
+* @returns UseQueryResult<IQueryResult[] | string>
 */
 
 function useGetPodcast( limit: number, queryOptions? : QueryOptions) 
-        : UseQueryResult<IAllItunesData | string> {
+        : UseQueryResult<IQueryResult> {
 
         const podcast = useQuery(
                 ['podcast', limit],
                 () => getPodcasts(limit), {
                     staleTime: Infinity,
                     refetchOnWindowFocus: false,
-                }) as UseQueryResult<IAllItunesData>
+                }) as UseQueryResult<IQueryResult>
         return podcast
     }
     

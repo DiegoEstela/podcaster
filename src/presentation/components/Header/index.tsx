@@ -6,7 +6,7 @@ import { IStatus } from "../../../app/global/interfaces"
 
 
 
-function Header({ status }: IStatus) {
+function Header({ status }: IStatus): JSX.Element {
   return (
     <Container>
       <Title>
