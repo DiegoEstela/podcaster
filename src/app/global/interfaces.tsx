@@ -56,7 +56,105 @@ export interface IPodcastDescription {
 
 
 export interface IQueryResult {
-    data?: IAllItunesData
+    data?: IAllItunesData,
+    dataUpdatedAt: number,
+    error: null,
+    errorUpdateCount: number,
+    errorUpdatedAt: number,
+    failureCount: number,
+    isError: boolean,
+    isFetched: boolean,
+    isFetchedAfterMount: boolean,
+    isFetching: boolean,
+    isIdle: boolean,
+    isLoading: boolean,
+    isLoadingError: boolean,
+    isPlaceholderData: boolean,
+    isPreviousData: boolean,
+    isRefetchError: boolean,
+    isRefetching: boolean,
+    isStale: boolean,
+    isSuccess: boolean,
+    refetch: RefetchOptions,
+    remove: ResetOptions,
+    status: IStatus | string,
+}
+
+export interface IPodcastDetail {
+    artistId: number,
+    artistName: string,
+    artistViewUrl: string,
+    artworkUrl30: string,
+    artworkUrl60: string,
+    artworkUrl100: string,
+    artworkUrl600: string,
+    collectionCensoredName: string,
+    collectionExplicitness: string,
+    collectionHdPrice: number,
+    collectionId: number,
+    collectionName: string,
+    collectionPrice: number,
+    collectionViewUrl: string,
+    contentAdvisoryRating: string,
+    country: string,
+    currency: string,
+    feedUrl: string,
+    genreIds: string[],
+    genres: string[],
+    kind: string,
+    primaryGenreName: string,
+    releaseDate: string,
+    trackCensoredName: string,
+    trackCount: number,
+    trackExplicitness: string,
+    trackId: number,
+    trackName: string,
+    trackPrice: number,
+    trackTimeMillis: number,
+    trackViewUrl: string,
+    wrapperType: string,
+}
+
+export interface IPodcastEpisode {
+    artistIds: number[],
+    artistViewUrl: string,
+    artworkUrl30: string,
+    artworkUrl60: string,
+    artworkUrl100: string,
+    artworkUrl600: string,
+    closedCaptioning: string,
+    collectionId: number,
+    collectionName: string,
+    collectionViewUrl: string,
+    contentAdvisoryRating: string,
+    country: string,
+    description: string,
+    episodeContentType: string,
+    geepisodeFileExtensionnreIds: string,
+    episodeGuid: string,
+    episodeUrl: string,
+    feedUrl: string,
+    genres: [{
+        name: string,
+        id: string,
+    }],
+    kind: string,
+    previewUrl: string,
+    releaseDate: string,
+    shortDescription: string,
+    trackId: number,
+    trackName: string,
+    trackTimeMillis: number,
+    trackViewUrl: string,
+    wrapperType: string,
+}
+export interface IPodcastDetailList {
+    resultCount: number;
+    rusults: IPodcastDetail | IPodcastEpisode
+}
+
+export interface IQueryResultPodcasDetail {
+    data?: IPodcastDetailList | string | undefined
     dataUpdatedAt: number
     error: null
     errorUpdateCount: number
@@ -78,5 +176,4 @@ export interface IQueryResult {
     refetch: RefetchOptions
     remove: ResetOptions
     status: IStatus | string
-
 }

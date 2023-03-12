@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Grid } from "react-loader-spinner"
-import { Container, CardContainer, Title, Loader, Input } from "./index.style"
-import { renderPodcast } from "../../../api/services/renderPodcast"
-import { primary } from "../../../app/global/styles"
+import { Container, CardContainer, Title } from "./index.style"
+import { renderPodcast } from "../../../utils/renderPodcast"
 import { IPodcast, IQueryResult } from "../../../app/global/interfaces"
+import FullLoader from "../../components/FullLoader"
+import InputSearch from "../../components/InputSearch"
 import PodcastCard from "../../components/PodcastCart"
 
 
@@ -13,26 +13,14 @@ function Home({ podcast }: { podcast: IQueryResult | any }) {
 
   return (
     <Container>
+      <InputSearch value={inputSearch} setInputSearch={setInputSearch} text='Filter podcasts...' />
       {
-        podcast.status === 'loading' &&
-        <Loader>
-          <Grid
-            height="80"
-            width="80"
-            color={primary}
-            ariaLabel="grid-loading"
-            radius="12.5"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-        </Loader>
+        podcast.status === 'loading' && <FullLoader active={true} />
       }
 
       {
         podcast.status === 'success' &&
         <>
-          <Input value={inputSearch ? inputSearch : ""} onChange={(e) => setInputSearch(e.target.value)} type='text' placeholder="Filter podcasts..." />
           <CardContainer>
             { }
             {renderPodcast(inputSearch, podcast)?.map((entry: IPodcast) => (

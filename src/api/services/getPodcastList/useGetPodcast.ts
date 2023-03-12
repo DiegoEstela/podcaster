@@ -1,5 +1,5 @@
 import { QueryKey, UseQueryOptions, UseQueryResult, useQuery } from 'react-query'
-import { IQueryResult } from '../../app/global/interfaces';
+import { IQueryResult } from '../../../app/global/interfaces';
 import { getPodcasts } from './getPodcasts';
 
     
@@ -19,7 +19,9 @@ function useGetPodcast( limit: number, queryOptions? : QueryOptions)
                 ['podcast', limit],
                 () => getPodcasts(limit), {
                     staleTime: Infinity,
+                    cacheTime: Infinity,
                     refetchOnWindowFocus: false,
+                    refetchOnReconnect: false,
                 }) as UseQueryResult<IQueryResult>
         return podcast
     }

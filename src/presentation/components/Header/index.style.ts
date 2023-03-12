@@ -5,13 +5,12 @@ export const Container = styled.header`
     justify-content: space-around;
     height: 8vh;
     border-bottom: 1px solid ${styleGlobal.muted};
-`;
-
-export const Title = styled.h1`
-    display:flex;
-    font-size: 2em;
-    color: ${styleGlobal.primary};
-
+    img{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 200px;
+    }
 `;
 
 export const Loader = styled.div`

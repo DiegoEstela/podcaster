@@ -1,7 +1,9 @@
+import { IStatus } from "../../../app/global/interfaces"
+import { Link } from "react-router-dom"
 import { Bars } from "react-loader-spinner"
 import { primary } from "../../../app/global/styles"
-import { Container, Title, Loader } from "./index.style"
-import { IStatus } from "../../../app/global/interfaces"
+import logo from '../../../assets/Imagotipo.png'
+import { Container, Loader } from "./index.style"
 
 
 
@@ -9,9 +11,10 @@ import { IStatus } from "../../../app/global/interfaces"
 function Header({ status }: IStatus): JSX.Element {
   return (
     <Container>
-      <Title>
-        Podcaster
-      </Title>
+      <Link to='/'>
+        <img src={logo} alt="Podcaster" />
+      </Link>
+
       <Loader>
         <Bars
           height="40"

@@ -1,4 +1,4 @@
-import { IPodcast, IQueryResult } from "../../app/global/interfaces"
+import { IPodcast, IQueryResult } from "../app/global/interfaces"
 
 export function renderPodcast(inputSearch: string, podcast: IQueryResult): IPodcast[] | undefined {
     let result: IPodcast[] | undefined = []

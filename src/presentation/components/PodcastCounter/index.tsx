@@ -1,8 +1,12 @@
+import { Counter, Text } from "./index.style"
 
-
-function PodcastCounter(): JSX.Element {
+function PodcastCounter({ podcastCount }: { podcastCount: number }): JSX.Element {
     return (
-        <div>PodcastCounter</div>
+        <Counter>
+            <Text>
+                Episodes: {podcastCount}
+            </Text>
+        </Counter>
     )
 }
 

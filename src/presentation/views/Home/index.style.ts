@@ -16,27 +16,9 @@ export const CardContainer = styled.div`
   justify-content: center;
 `;
 
-export const Loader = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-
 export const Title = styled.h1`
     display:flex;
     font-size: 2em;
     color: ${styleGlobal.primary};
-
-`;
-
-
-export const Input = styled.input`
-    width: 20%;
-    margin: 24px;
-    height: 32px;
-    border-radius: 4px;
-    position: relative;
-    left: 70%;
-
 
 `;

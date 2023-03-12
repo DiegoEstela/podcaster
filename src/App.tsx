@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import useGetPodcast from "./api/services/useGetPodcast";
+import useGetPodcast from "./api/services/getPodcastList/useGetPodcast";
 import Header from "./presentation/components/Header";
 import Home from "./presentation/views/Home";
 import PodcastDetail from "./presentation/views/PodcastDetail";
