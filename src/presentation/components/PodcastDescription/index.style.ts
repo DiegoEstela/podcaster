@@ -5,7 +5,6 @@ import * as styleGlobal from '../../../app/global/styles'
 export const Container = styled.div`
     width: 20%;
     margin: 40px;
-
     display:flex;
     flex-direction: column;
     box-shadow: ${styleGlobal.Shadow};

@@ -8,4 +8,12 @@ export const Container = styled.div`
   display: flex;
 `
 
+export const Body = styled.div`
+  margin: 0 5vw;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+`
+
+
 
