@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router"
 import { IQueryResult, IQueryResultPodcasDetail, IPodcast } from "../../../app/global/interfaces";
 import useGetPodcastDetail from "../../../api/services/getPodcastDetail/useGetPodcastDetail";
 import { Container } from "./index.style";
