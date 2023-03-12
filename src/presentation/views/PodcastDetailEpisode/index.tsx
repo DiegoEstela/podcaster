@@ -1,18 +1,19 @@
 import { useParams } from "react-router-dom"
-import { IQueryResult, IPodcast, IQueryResultPodcasDetail } from "../../../app/global/interfaces"
+import { IQueryResult, IQueryResultPodcasDetail, IPodcast } from "../../../app/global/interfaces";
 import useGetPodcastDetail from "../../../api/services/getPodcastDetail/useGetPodcastDetail";
-import { Container, Body } from "./index.style";
+import { Container } from "./index.style";
 import FullLoader from "../../components/FullLoader";
 import PodcastDescription from "../../components/PodcastDescription";
-import PodcastCounter from "../../components/PodcastCounter";
-import PodcastsDetailBody from "../../components/PodcastDetailBody";
+import PodcastEpisodebody from "../../components/PodcastEpisodeBody";
 
 type Params = {
   podcastId: string | any
+  episodeId: string | any
+
 };
 
-function PodcastDetail({ podcast }: { podcast: IQueryResult | string | undefined }) {
-  const { podcastId } = useParams<Params>()
+function PodcastDetailEpisode({ podcast }: { podcast: IQueryResult | string | undefined }) {
+  const { podcastId, episodeId } = useParams<Params>()
   const { feed }: any = podcast
   const podcastDetail: IQueryResultPodcasDetail | any = useGetPodcastDetail(podcastId)
   return (
@@ -21,22 +22,18 @@ function PodcastDetail({ podcast }: { podcast: IQueryResult | string | undefined
         .filter((podcast: IPodcast) => podcast.id.attributes['im:id'] === podcastId)
         .map((item: IPodcast) => (
           <Container key={item.id.attributes['im:id']}>
-            <PodcastDescription name={item["im:name"].label} img={item['im:image'][2].label} author={item["im:artist"].label} description={item.summary.label} />
+            <PodcastDescription name={item["im:name"].label} img={item['im:image'][2].label} author={item["im:artist"].label} description={item.summary.label} id={podcastId} />
             {podcastDetail.status === "loading" &&
               <>
                 <FullLoader active={true} />
               </>}
             {podcastDetail.status === "success" &&
-              <>
-                <Body>
-                  <PodcastCounter podcastCount={podcastDetail?.data?.resultCount} />
-                  <PodcastsDetailBody podcasts={podcastDetail?.data} />
-                </Body>
-              </>}
+              <PodcastEpisodebody podcastDetail={podcastDetail?.data?.results} episodeId={episodeId} />
+            }
           </Container>
         ))}
     </>
   )
 }
 
-export default PodcastDetail
+export default PodcastDetailEpisode

@@ -52,6 +52,7 @@ export interface IPodcastDescription {
     img: string | undefined;
     author: string,
     description: string
+    id?: string,
 }
 
 
@@ -130,6 +131,7 @@ export interface IPodcastEpisode {
     country: string,
     description: string,
     episodeContentType: string,
+    episodeFileExtension: string,
     geepisodeFileExtensionnreIds: string,
     episodeGuid: string,
     episodeUrl: string,
@@ -156,7 +158,7 @@ export interface IPodcastDetailList {
 export interface IQueryResultPodcasDetail {
     data?: IPodcastDetailList | string | undefined
     dataUpdatedAt: number
-    error: null
+    error: any
     errorUpdateCount: number
     errorUpdatedAt: number
     failureCount: number
@@ -173,8 +175,8 @@ export interface IQueryResultPodcasDetail {
     isRefetching: boolean
     isStale: boolean
     isSuccess: boolean
-    refetch: RefetchOptions
-    remove: ResetOptions
+    refetch: any
+    remove: any
     status: IStatus | string
 }
 

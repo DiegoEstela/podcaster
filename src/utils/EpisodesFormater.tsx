@@ -22,7 +22,6 @@ function convertMsToTime(milliseconds: number) {
 export function EpisodesFormater(podcasts: IPodcastDetail[] | IPodcastEpisode[]): IFormattedPodcast[] | undefined {
     const formattedPodcast: IFormattedPodcast[] = []
     podcasts?.forEach((podcast) => {
-        console.log(podcast)
         let body: IFormattedPodcast = {
             collectionId: podcast?.collectionId,
             trackId: podcast?.trackId,

@@ -4,16 +4,16 @@ import { useTable, useGlobalFilter } from 'react-table';
 import { ThLink } from './index.style';
 import Table from './table';
 
-function EpisodesTable({ podcasts }: { podcasts: any }) {
+function EpisodesTable({ podcasts }) {
 
 
 
-  const tableHooks = (hooks: any) => {
-    hooks.visibleColumns.push((columns: any) => [
+  const tableHooks = (hooks) => {
+    hooks.visibleColumns.push((columns) => [
       {
         id: 'Title',
         Header: 'Title',
-        Cell: ({ row }: any) => (
+        Cell: ({ row }) => (
           <ThLink>
             <Link to={`/podcast/${row.original.collectionId}/episode/${row.original.trackId}`} className="link">
               {row.original.title}
@@ -40,7 +40,7 @@ function EpisodesTable({ podcasts }: { podcasts: any }) {
   );
 
   const tableInstance = useTable(
-    { columns: podcastsColumns, data: podcastsData } as any,
+    { columns: podcastsColumns, data: podcastsData },
     tableHooks,
     useGlobalFilter
   )
