@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { IQueryResult, IPodcast, IQueryResultPodcasDetail } from "../../../app/global/interfaces"
 import useGetPodcastDetail from "../../../api/services/getPodcastDetail/useGetPodcastDetail";
 import { Container, Body } from "./index.style";
+import FullLoader from "../../components/FullLoader";
 import PodcastDescription from "../../components/PodcastDescription";
 import PodcastCounter from "../../components/PodcastCounter";
 import PodcastsDetailBody from "../../components/PodcastDetailBody";
@@ -14,7 +15,6 @@ function PodcastDetail({ podcast }: { podcast: IQueryResult | string | undefined
   const { podcastId } = useParams<Params>()
   const { feed }: any = podcast
   const podcastDetail: IQueryResultPodcasDetail | any = useGetPodcastDetail(podcastId)
-  console.log(podcastDetail)
   return (
     <>
       {feed.entry
@@ -24,17 +24,13 @@ function PodcastDetail({ podcast }: { podcast: IQueryResult | string | undefined
             <PodcastDescription name={item["im:name"].label} img={item['im:image'][2].label} author={item["im:artist"].label} description={item.summary.label} />
             {podcastDetail.status === "loading" &&
               <>
-
-                <PodcastCounter podcastCount={podcastDetail?.data?.resultCount} />
-
-
+                <FullLoader active={true} />
               </>}
-
             {podcastDetail.status === "success" &&
               <>
                 <Body>
                   <PodcastCounter podcastCount={podcastDetail?.data?.resultCount} />
-                  <PodcastsDetailBody />
+                  <PodcastsDetailBody podcasts={podcastDetail?.data} />
                 </Body>
               </>}
 

@@ -150,7 +150,7 @@ export interface IPodcastEpisode {
 }
 export interface IPodcastDetailList {
     resultCount: number;
-    rusults: IPodcastDetail | IPodcastEpisode
+    results: IPodcastDetail[] | IPodcastEpisode[]
 }
 
 export interface IQueryResultPodcasDetail {
@@ -176,4 +176,12 @@ export interface IQueryResultPodcasDetail {
     refetch: RefetchOptions
     remove: ResetOptions
     status: IStatus | string
+}
+
+export interface IFormattedPodcast {
+    title: string,
+    date: string,
+    duration: string,
+    collectionId: number,
+    trackId: number
 }
