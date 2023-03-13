@@ -18,10 +18,11 @@ function useGetPodcast( limit: number, queryOptions? : QueryOptions)
         const podcast = useQuery(
                 ['podcast', limit],
                 () => getPodcasts(limit), {
+                    refetchOnMount: false,
                     refetchOnWindowFocus: false,
                     refetchOnReconnect: false,
-                    retry: false,
-                    staleTime: 3600000*24,
+                    staleTime: Infinity,
+                    cacheTime: 60 * 60 * 24 * 1000,
                 }) as IQueryResult
         return podcast
     }

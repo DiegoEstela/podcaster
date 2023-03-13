@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { iTunesPath } from "../../../app/global/endpoints";
 import { IAllItunesData } from "../../../app/global/interfaces";
 
@@ -6,8 +6,7 @@ import { IAllItunesData } from "../../../app/global/interfaces";
 export async function getPodcasts(limit: number): Promise<AxiosResponse<IAllItunesData[]> | string> {
     try {
         const path: string = `${iTunesPath}/us/rss/toppodcasts/limit=${limit}/genre=1310/json`
-        const headers: AxiosRequestConfig = { headers: { Accept: "application/json" }, };
-        const { data, status } = await axios.get(path, headers);
+        const { data, status } = await axios.get(path, { withCredentials: false });
         console.log("response status is: ", status);
         return data
     } catch (error) {

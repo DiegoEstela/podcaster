@@ -1,4 +1,4 @@
-import { QueryKey, UseQueryOptions, UseQueryResult, useQuery } from 'react-query'
+import { QueryKey, UseQueryOptions, useQuery } from 'react-query'
 import { IQueryResultPodcastDetail } from '../../../app/global/interfaces';
 import { getPodcastDetail } from './getPodcastDetail';
 
@@ -17,10 +17,11 @@ function useGetPodcastDetail( id: string, queryOptions? : QueryOptions)
         const podcast = useQuery(
                 ['podcast', id],
                 () => getPodcastDetail(id), {
+                    refetchOnMount: false,
                     refetchOnWindowFocus: false,
                     refetchOnReconnect: false,
-                    retry: false,
-                    staleTime: 3600000*24,
+                    staleTime: Infinity,
+                    cacheTime: 60 * 60 * 24 * 1000,
                 }) as IQueryResultPodcastDetail
         return podcast
     }
