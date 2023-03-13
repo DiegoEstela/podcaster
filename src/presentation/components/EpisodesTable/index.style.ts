@@ -36,8 +36,6 @@ text-align: start;
 }
 `;
 
-
-
 export const Tr = styled.tr`
   :hover {
     cursor: pointer;

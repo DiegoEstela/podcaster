@@ -8,7 +8,7 @@ import PodcastCard from "../../components/PodcastCart"
 
 
 
-function Home({ podcast }: { podcast: IQueryResult | any }) {
+function Home({ podcast }: { podcast: IQueryResult }) {
   const [inputSearch, setInputSearch] = useState<string>('')
 
   return (
@@ -22,9 +22,8 @@ function Home({ podcast }: { podcast: IQueryResult | any }) {
         podcast.status === 'success' &&
         <>
           <CardContainer>
-            { }
             {renderPodcast(inputSearch, podcast)?.map((entry: IPodcast) => (
-              <PodcastCard key={entry?.id.label} entry={entry} />
+              <PodcastCard key={entry?.id?.label} entry={entry} />
             ))}
           </CardContainer>
         </>

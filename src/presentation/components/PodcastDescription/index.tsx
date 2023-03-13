@@ -5,7 +5,6 @@ import { IPodcastDescription } from "../../../app/global/interfaces"
 
 function PodcastDescription({ name, img, author, description, id }: IPodcastDescription): JSX.Element {
     const history = useNavigate()
-    console.log(id)
     return (
         <Container>
             <Img src={img} onClick={() => id && history(`/podcast/${id}`)} active={id ? true : false} />

@@ -1,27 +1,27 @@
 import { QueryKey, UseQueryOptions, UseQueryResult, useQuery } from 'react-query'
-import { IQueryResultPodcasDetail } from '../../../app/global/interfaces';
+import { IQueryResultPodcastDetail } from '../../../app/global/interfaces';
 import { getPodcastDetail } from './getPodcastDetail';
 
     
-type QueryOptions = Omit<UseQueryOptions<IQueryResultPodcasDetail, QueryKey>, 'queryFn'>
+type QueryOptions = Omit<UseQueryOptions<IQueryResultPodcastDetail, QueryKey>, 'queryFn'>
     
 /**
 * useGetPodcastDetail busca un podcats de Itune por id
 * 
 * @param id permite encontrar el podcast solicitado
-* @returns UseQueryResult<IQueryResultPodcasDetail[] | string>
+* @returns UseQueryResult<IQueryResultPodcastDetail[] | string>
 */
 
 function useGetPodcastDetail( id: string, queryOptions? : QueryOptions) 
-        : UseQueryResult<IQueryResultPodcasDetail> {
+        : IQueryResultPodcastDetail {
         const podcast = useQuery(
                 ['podcast', id],
                 () => getPodcastDetail(id), {
-                    staleTime: Infinity,
-                    cacheTime: Infinity,
                     refetchOnWindowFocus: false,
                     refetchOnReconnect: false,
-                }) as UseQueryResult<IQueryResultPodcasDetail>
+                    retry: false,
+                    staleTime: 3600000*24,
+                }) as IQueryResultPodcastDetail
         return podcast
     }
     

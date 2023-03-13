@@ -1,4 +1,4 @@
-import { IPodcastDetail, IPodcastEpisode, IFormattedPodcast } from "../app/global/interfaces";
+import { IPodcastEpisode, IFormattedPodcast } from "../app/global/interfaces";
 import moment from 'moment'
 
 function padTo2Digt(num: number) {
@@ -19,7 +19,7 @@ function convertMsToTime(milliseconds: number) {
 }
 
 
-export function EpisodesFormater(podcasts: IPodcastDetail[] | IPodcastEpisode[]): IFormattedPodcast[] | undefined {
+export function EpisodesFormater(podcasts: IPodcastEpisode[]): IFormattedPodcast[] | undefined {
     const formattedPodcast: IFormattedPodcast[] = []
     podcasts?.forEach((podcast) => {
         let body: IFormattedPodcast = {

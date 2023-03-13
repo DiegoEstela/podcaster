@@ -10,8 +10,6 @@ export const Card = styled.header`
     :hover{
         cursor: pointer;
     }
-
- 
 `;
 
 export const CardFooter = styled.header`

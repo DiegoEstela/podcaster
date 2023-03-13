@@ -5,9 +5,7 @@ import { ThLink } from './index.style';
 import Table from './table';
 
 function EpisodesTable({ podcasts }) {
-
-
-
+  
   const tableHooks = (hooks) => {
     hooks.visibleColumns.push((columns) => [
       {
@@ -15,7 +13,7 @@ function EpisodesTable({ podcasts }) {
         Header: 'Title',
         Cell: ({ row }) => (
           <ThLink>
-            <Link to={`/podcast/${row.original.collectionId}/episode/${row.original.trackId}`} className="link">
+            <Link to={`/podcast/${row?.original?.collectionId}/episode/${row?.original?.trackId}`} className="link">
               {row.original.title}
             </Link>
           </ThLink>

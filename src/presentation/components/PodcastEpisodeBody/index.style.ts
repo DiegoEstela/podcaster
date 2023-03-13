@@ -17,6 +17,24 @@ export const Body = styled.div`
 
 `
 
+
+export const DescripcionBody = styled.div`
+  margin: 0px 40px;
+  height: 32vh;
+  p{
+    font-size: 1.5em;
+    font-style: italic;
+   
+  }
+  overflow: auto;
+    ::-webkit-scrollbar{
+        width: 7px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background: ${styleGlobal.primary}
+    }
+`
+
 export const AudioPlayer= styled.audio`
   width: 60%;
   margin: 16px;
@@ -31,7 +49,6 @@ export const Footer= styled.footer`
   display: flex;
   justify-content: center;
   position: relative;
-  top: 70%;
 `
 
 

@@ -29,19 +29,22 @@ export interface IPodcast {
     summary: label
 }
 
-export interface IAllItunesData {
-    feed: {
-        author: { name: label, uri: label },
-        uri?: label,
-        entry?: IPodcast[],
-        icon: label,
-        id: label,
-        link: attributesLink[]
-        rights: label,
-        title: label,
-        updated: label
-    }
+export interface IFeed {
+    author: { name: label, uri: label },
+    uri?: label,
+    entry?: IPodcast[],
+    icon: label,
+    id: label,
+    link: attributesLink[]
+    rights: label,
+    title: label,
+    updated: label
 }
+export interface IAllItunesData {
+    feed: IFeed
+}
+
+
 
 export type TFetchStatus = "success" | "idle" | "error" | "loading"
 
@@ -76,8 +79,8 @@ export interface IQueryResult {
     isRefetching: boolean,
     isStale: boolean,
     isSuccess: boolean,
-    refetch: RefetchOptions,
-    remove: ResetOptions,
+    refetch: any,
+    remove: any,
     status: IStatus | string,
 }
 
@@ -152,32 +155,31 @@ export interface IPodcastEpisode {
 }
 export interface IPodcastDetailList {
     resultCount: number;
-    results: IPodcastDetail[] | IPodcastEpisode[]
+    results: IPodcastEpisode[]
 }
 
-export interface IQueryResultPodcasDetail {
-    data?: IPodcastDetailList | string | undefined
-    dataUpdatedAt: number
-    error: any
-    errorUpdateCount: number
-    errorUpdatedAt: number
-    failureCount: number
-    isError: boolean
-    isFetched: boolean
-    isFetchedAfterMount: boolean
-    isFetching: boolean
-    isIdle: boolean
-    isLoading: boolean
-    isLoadingError: boolean
-    isPlaceholderData: boolean
-    isPreviousData: boolean
-    isRefetchError: boolean
-    isRefetching: boolean
-    isStale: boolean
-    isSuccess: boolean
-    refetch: any
-    remove: any
-    status: IStatus | string
+export interface IQueryResultPodcastDetail {
+    data: IPodcastDetailList
+    error: null,
+    errorUpdateCount: number,
+    errorUpdatedAt: number,
+    failureCount: number,
+    isError: boolean,
+    isFetched: boolean,
+    isFetchedAfterMount: boolean,
+    isFetching: boolean,
+    isIdle: boolean,
+    isLoading: boolean,
+    isLoadingError: boolean,
+    isPlaceholderData: boolean,
+    isPreviousData: boolean,
+    isRefetchError: boolean,
+    isRefetching: boolean,
+    isStale: boolean,
+    isSuccess: boolean,
+    refetch: any,
+    remove: any,
+    status?: IStatus | string,
 }
 
 export interface IFormattedPodcast {
