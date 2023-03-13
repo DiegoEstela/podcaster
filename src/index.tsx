@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,9 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <QueryClientProvider client={queryClient}>
+    <ReactQueryDevtools />
     <BrowserRouter>
       <App />
     </BrowserRouter>
+
   </QueryClientProvider>
 );
 
