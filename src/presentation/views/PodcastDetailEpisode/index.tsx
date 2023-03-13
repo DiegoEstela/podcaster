@@ -14,7 +14,7 @@ type Params = {
 function PodcastDetailEpisode({ podcast }: { podcast: IAllItunesData }) {
   const { podcastId, episodeId } = useParams<Params>()
   const { feed }: { feed: IFeed } = podcast
-  const podcastDetail: IQueryResultPodcastDetail | any = useGetPodcastDetail(podcastId as string)
+  const podcastDetail: IQueryResultPodcastDetail = useGetPodcastDetail(podcastId as string)
   return (
     <>
       {feed?.entry?.filter((podcast: IPodcast) => podcast.id.attributes['im:id'] === podcastId)
