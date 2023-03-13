@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { IPodcastDetailList } from "../../../app/global/interfaces";
 import { iTunesPath } from "../../../app/global/endpoints";
 
@@ -7,13 +7,7 @@ export async function getPodcastDetail(id: string): Promise<AxiosResponse<IPodca
     try {
         const path: string = `${iTunesPath}/lookup?id=${id}&media=podcast
         &entity=podcastEpisode&limit=20`
-        const headers: AxiosRequestConfig = {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-            }
-        }
-        const { data, status } = await axios.get(path, headers);
+        const { data, status } = await axios.get(path,);
         console.log("response status is: ", status);
         return data
     } catch (error) {
