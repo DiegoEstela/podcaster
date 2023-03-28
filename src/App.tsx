@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import useGetPodcast from "./api/services/getPodcastList/useGetPodcast";
-import { IQueryResult, TFetchStatus, IAllItunesData } from "./app/global/interfaces";
+import { IQueryResult, IAllItunesData } from "./app/global/interfaces";
 import Header from "./presentation/components/Header";
 import Home from "./presentation/views/Home";
 import PodcastDetail from "./presentation/views/PodcastDetail";
@@ -12,7 +12,7 @@ function App() {
   const { data } = allPodcasts
   return (
     <>
-      <Header status={allPodcasts?.status as TFetchStatus} />
+      <Header status={allPodcasts?.isSuccess as boolean} />
       <Routes>
         <Route path='/' element={<Home podcast={allPodcasts} />} />
         <Route path='/podcast/:podcastId' element={<PodcastDetail podcast={data as IAllItunesData} />} />

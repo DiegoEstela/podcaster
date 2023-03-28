@@ -1,7 +1,7 @@
 import { Container } from "./index.style"
 import { IPodcastEpisode } from "../../../app/global/interfaces"
 import { EpisodesFormater } from "../../../utils/EpisodesFormater"
-import EpisodesTable from "../EpisodesTable"
+import EpisodesTable from "../EpidodesList"
 function PodcastsDetailBody({ podcasts }: { podcasts: IPodcastEpisode[] }): JSX.Element {
 
     return (

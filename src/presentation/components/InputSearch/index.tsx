@@ -8,7 +8,7 @@ interface IInputSearch {
 
 function InputSearch({ value, setInputSearch, text }: IInputSearch) {
     return (
-        <Input value={value ? value : ""} onChange={(e) => setInputSearch(e.target.value)} type='text' placeholder={text} />
+        <Input value={value || ""} onChange={(e) => setInputSearch(e.target.value)} type='text' placeholder={text} />
 
     )
 }

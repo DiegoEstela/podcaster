@@ -1,4 +1,3 @@
-import { IStatus } from "../../../app/global/interfaces"
 import { Link } from "react-router-dom"
 import { Bars } from "react-loader-spinner"
 import { primary } from "../../../app/global/styles"
@@ -8,7 +7,7 @@ import { Container, Loader } from "./index.style"
 
 
 
-function Header({ status }: IStatus): JSX.Element {
+function Header({ status }: { status: boolean }): JSX.Element {
   return (
     <Container>
       <Link to='/'>
@@ -23,7 +22,7 @@ function Header({ status }: IStatus): JSX.Element {
           ariaLabel="bars-loading"
           wrapperStyle={{}}
           wrapperClass=""
-          visible={status === 'success' ? false : true}
+          visible={!status}
         />
       </Loader>
     </Container >

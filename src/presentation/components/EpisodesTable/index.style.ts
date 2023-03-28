@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import * as styleGlobal from '../../../app/global/styles'
 
-export const Table = styled.table`
+export const TableContainer = styled.table`
   margin-top: 16px;
   text-transform: normal;
   font-weight: normal;

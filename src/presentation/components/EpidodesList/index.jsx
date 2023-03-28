@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTable, useGlobalFilter } from 'react-table';
-import { ThLink } from './index.style';
-import Table from './table';
+import { ThLink } from '../EpisodesTable/index.style';
+import Table from '../EpisodesTable/Table';
 
 function EpisodesTable({ podcasts }) {
   
